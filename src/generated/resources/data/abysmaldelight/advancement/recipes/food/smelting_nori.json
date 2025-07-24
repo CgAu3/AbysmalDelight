@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_laver": {
+      "conditions": {
+        "items": [
+          {
+            "items": "abysmaldelight:laver"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "abysmaldelight:smelting_nori"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_laver"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "abysmaldelight:smelting_nori"
+    ]
+  }
+}
