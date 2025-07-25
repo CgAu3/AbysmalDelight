@@ -1,12 +1,16 @@
 package io.github.cgau3.abysmaldelight.init;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
+import io.github.cgau3.abysmaldelight.item.LaverFilamentItem;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import vectorwing.farmersdelight.common.FoodValues;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
+
+import java.util.List;
+import java.util.Optional;
 
 import static io.github.cgau3.abysmaldelight.AbysmalDelight.A_REGISTRATE;
 
@@ -47,6 +51,36 @@ public class ModItem {
             .craftRemainder(Items.BOWL)
             .stacksTo(16)
         )
+        .register();
+    public static ItemEntry<Item> LAVER_ROLL_ITEM = A_REGISTRATE
+        .item("laver_roll", Item::new)
+        .properties(p -> p
+            .food(new FoodProperties(
+                12,
+                12,
+                false,
+                2.4f,
+                Optional.empty(),
+                List.of()
+            ))
+        )
+        .compostable(1f)
+        .register();
+    public static ItemEntry<Item> LAVER_ROLL_SLICE_ITEM = A_REGISTRATE
+        .item("laver_roll_slice", Item::new)
+        .properties(p -> p
+            .food(new FoodProperties.Builder()
+                .nutrition(6)                     // 6饱食度
+                .saturationModifier(0.6f)         // 7.2饱和度，数值略高于海带寿司卷
+                .fast()
+                .build()
+            )
+        )
+        .compostable(0.3f)
+        .register();
+    public static ItemEntry<LaverFilamentItem> LAVER_FILAMENT_ITEM = A_REGISTRATE
+        .item("laver_filament", LaverFilamentItem::new)
+        .compostable(0.1f)
         .register();
 
     public static void register() {}

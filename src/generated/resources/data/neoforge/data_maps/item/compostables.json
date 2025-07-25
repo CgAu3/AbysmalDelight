@@ -3,6 +3,15 @@
     "abysmaldelight:laver": {
       "chance": 0.3
     },
+    "abysmaldelight:laver_filament": {
+      "chance": 0.1
+    },
+    "abysmaldelight:laver_roll": {
+      "chance": 1.0
+    },
+    "abysmaldelight:laver_roll_slice": {
+      "chance": 0.3
+    },
     "abysmaldelight:nori": {
       "chance": 0.3
     }

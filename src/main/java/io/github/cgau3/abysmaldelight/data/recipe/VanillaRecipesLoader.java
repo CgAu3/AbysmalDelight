@@ -5,22 +5,23 @@ import io.github.cgau3.abysmaldelight.AbysmalDelight;
 import io.github.cgau3.abysmaldelight.data.AbysmalDataGen;
 import io.github.cgau3.abysmaldelight.init.ModItem;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 public class VanillaRecipesLoader {
     public static void init(RegistrateRecipeProvider provider) {
-        /*
-        //example:
-         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.HEART_OF_THE_SEA)
-            .pattern("A")
-            .pattern("B")
-            .pattern("A")
-            .define('A', ModItems.SEA_HEART_SHELL)
-            .define('B', ModItems.SAPPHIRE)
-            .unlockedBy("hasitem", AnvilCraftDatagen.has(ModItems.SEA_HEART_SHELL))
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItem.LAVER_ROLL_ITEM)
+            .pattern("BCD")
+            .pattern("AAA")
+            .define('A', ModItem.NORI_ITEM)
+            .define('B', ModItems.COOKED_RICE.get())
+            .define('C', Items.CARROT)
+            .define('D', ModItems.FRIED_EGG.get())
+            .unlockedBy("has_item", AbysmalDataGen.has(ModItem.NORI_ITEM))
             .save(provider);
-         */
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ModItem.LAVER_ITEM), RecipeCategory.FOOD,
                 ModItem.NORI_ITEM, 0.35f, 300)
             .unlockedBy(AbysmalDataGen.hasItem(ModItem.LAVER_ITEM.get()), AbysmalDataGen.has(ModItem.LAVER_ITEM))

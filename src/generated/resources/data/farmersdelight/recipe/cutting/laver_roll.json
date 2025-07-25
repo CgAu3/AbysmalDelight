@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "abysmaldelight:laver_roll"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 3,
+        "id": "abysmaldelight:laver_roll_slice"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}

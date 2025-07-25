@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "abysmaldelight:nori"
+    },
+    "B": {
+      "item": "farmersdelight:cooked_rice"
+    },
+    "C": {
+      "item": "minecraft:carrot"
+    },
+    "D": {
+      "item": "farmersdelight:fried_egg"
+    }
+  },
+  "pattern": [
+    "BCD",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "abysmaldelight:laver_roll"
+  }
+}

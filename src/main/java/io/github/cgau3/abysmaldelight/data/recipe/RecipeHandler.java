@@ -6,5 +6,6 @@ public class RecipeHandler {
     public static void init(RegistrateRecipeProvider provider) {
         VanillaRecipesLoader.init(provider);
         CookingRecipesLoader.init(provider);
+        CuttingBoardRecipesLoader.init(provider);
     }
 }
