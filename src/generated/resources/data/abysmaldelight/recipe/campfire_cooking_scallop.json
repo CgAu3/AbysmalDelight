@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 500,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "abysmaldelight:scallop_meat"
+  },
+  "result": {
+    "count": 1,
+    "id": "abysmaldelight:dried_scallop_meat"
+  }
+}

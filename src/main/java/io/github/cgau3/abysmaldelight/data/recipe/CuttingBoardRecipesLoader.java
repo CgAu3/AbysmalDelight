@@ -15,5 +15,15 @@ public class CuttingBoardRecipesLoader {
                 ModItem.LAVER_ROLL_SLICE_ITEM.get(),
                 3)
             .build(provider);
+        CuttingBoardRecipeBuilder
+            .cuttingRecipe(
+                Ingredient.of(ModItem.SCALLOP_ITEM.get()),
+                Ingredient.of(CommonTags.TOOLS_KNIFE),
+                ModItem.SHELL_ITEM.get(),
+                2)
+            .addResult(ModItem.SCALLOP_MEAT_ITEM.get(), 1)
+            .addResultWithChance(ModItem.LAVER_FILAMENT_ITEM.get(), 0.05f, 1)
+            .addResultWithChance(ModItem.PEARL_ITEM.get(), 0.05f, 1)
+            .build(provider);
     }
 }

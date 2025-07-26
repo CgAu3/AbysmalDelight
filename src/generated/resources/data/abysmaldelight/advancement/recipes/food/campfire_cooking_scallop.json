@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_scallop_meat": {
+      "conditions": {
+        "items": [
+          {
+            "items": "abysmaldelight:scallop_meat"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "abysmaldelight:campfire_cooking_scallop"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_scallop_meat"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "abysmaldelight:campfire_cooking_scallop"
+    ]
+  }
+}

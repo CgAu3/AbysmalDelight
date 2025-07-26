@@ -1,9 +1,14 @@
 {
+  "item.abysmaldelight.dried_scallop_meat": "干贝",
   "item.abysmaldelight.laver": "紫菜",
   "item.abysmaldelight.laver_and_egg_soup": "紫菜蛋花汤",
   "item.abysmaldelight.laver_filament": "紫菜丝状体",
   "item.abysmaldelight.laver_roll": "紫菜包饭卷",
   "item.abysmaldelight.laver_roll_slice": "紫菜包饭",
   "item.abysmaldelight.nori": "海苔",
+  "item.abysmaldelight.pearl": "珍珠",
+  "item.abysmaldelight.scallop": "扇贝",
+  "item.abysmaldelight.scallop_meat": "贝肉",
+  "item.abysmaldelight.shell": "贝壳",
   "itemGroup.abysmaldelight.main": "渊邃乐事"
 }

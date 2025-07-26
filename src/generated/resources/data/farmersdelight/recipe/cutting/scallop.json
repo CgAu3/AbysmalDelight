@@ -1,0 +1,39 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "abysmaldelight:scallop"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 2,
+        "id": "abysmaldelight:shell"
+      }
+    },
+    {
+      "item": {
+        "count": 1,
+        "id": "abysmaldelight:scallop_meat"
+      }
+    },
+    {
+      "chance": 0.05,
+      "item": {
+        "count": 1,
+        "id": "abysmaldelight:laver_filament"
+      }
+    },
+    {
+      "chance": 0.05,
+      "item": {
+        "count": 1,
+        "id": "abysmaldelight:pearl"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}

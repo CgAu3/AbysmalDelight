@@ -31,7 +31,7 @@ public class ModItem {
         .properties(p -> p
             .food(new FoodProperties.Builder()
                 .nutrition(1)                   // 1饱食度
-                .saturationModifier(0.6f)       // 0.6饱和度（数值同干海带）
+                .saturationModifier(0.6f)       // 1.2饱和度，略高于干海带
                 .fast()
                 .build()
             )
@@ -43,7 +43,7 @@ public class ModItem {
         .properties(p -> p
             .food(new FoodProperties.Builder()
                 .nutrition(6)                   // 6饱食度
-                .saturationModifier(1f)         // 6饱和度
+                .saturationModifier(1f)         // 12饱和度
                 .usingConvertsTo(Items.BOWL)
                 .effect(() -> FoodValues.comfort(FoodValues.MEDIUM_DURATION), 1.0F)
                 .build()
@@ -76,11 +76,40 @@ public class ModItem {
                 .build()
             )
         )
-        .compostable(0.3f)
+        .compostable(0.55f)
         .register();
     public static ItemEntry<LaverFilamentItem> LAVER_FILAMENT_ITEM = A_REGISTRATE
         .item("laver_filament", LaverFilamentItem::new)
         .compostable(0.1f)
+        .register();
+    public static ItemEntry<Item> SCALLOP_ITEM = A_REGISTRATE
+        .item("scallop", Item::new)
+        .register();
+    public static ItemEntry<Item> SHELL_ITEM = A_REGISTRATE
+        .item("shell", Item::new)
+        .register();
+    public static ItemEntry<Item> SCALLOP_MEAT_ITEM = A_REGISTRATE
+        .item("scallop_meat", Item::new)
+        .properties(p -> p
+            .food(new FoodProperties.Builder()
+                .nutrition(2)                     // 2饱食度
+                .saturationModifier(0.5f)         // 2饱和度
+                .build()
+            )
+        )
+        .register();
+    public static ItemEntry<Item> DIRED_SCALLOP_MEAT_ITEM = A_REGISTRATE
+        .item("dried_scallop_meat", Item::new)
+        .properties(p -> p
+            .food(new FoodProperties.Builder()
+                .nutrition(2)                     // 2饱食度
+                .saturationModifier(0.75f)        // 3饱和度
+                .build()
+            )
+        )
+        .register();
+    public static ItemEntry<Item> PEARL_ITEM = A_REGISTRATE
+        .item("pearl", Item::new)
         .register();
 
     public static void register() {}

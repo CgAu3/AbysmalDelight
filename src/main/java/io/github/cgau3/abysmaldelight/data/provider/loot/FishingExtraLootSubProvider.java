@@ -7,7 +7,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biome;
@@ -43,7 +42,7 @@ public class FishingExtraLootSubProvider implements LootTableSubProvider {
                             )
                         ))
                     )
-                    .add(LootItem.lootTableItem(Items.TURTLE_SCUTE.asItem())
+                    .add(LootItem.lootTableItem(ModItem.SCALLOP_ITEM.get())
                         .setWeight(10))
                     .add(LootItem.lootTableItem(Items.GLOW_INK_SAC.asItem())
                         .setWeight(10)

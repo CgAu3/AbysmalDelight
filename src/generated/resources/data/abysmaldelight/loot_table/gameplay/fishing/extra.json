@@ -19,7 +19,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:turtle_scute",
+          "name": "abysmaldelight:scallop",
           "weight": 10
         },
         {

@@ -34,5 +34,9 @@ public class VanillaRecipesLoader {
                 ModItem.NORI_ITEM, 0.35f, 200)
             .unlockedBy(AbysmalDataGen.hasItem(ModItem.LAVER_ITEM.get()), AbysmalDataGen.has(ModItem.LAVER_ITEM))
             .save(provider, AbysmalDelight.of("smelting_nori"));
+        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ModItem.SCALLOP_MEAT_ITEM), RecipeCategory.FOOD,
+                ModItem.DIRED_SCALLOP_MEAT_ITEM, 0.35f, 500)
+            .unlockedBy(AbysmalDataGen.hasItem(ModItem.SCALLOP_MEAT_ITEM.get()), AbysmalDataGen.has(ModItem.SCALLOP_MEAT_ITEM))
+            .save(provider, AbysmalDelight.of("campfire_cooking_scallop"));
     }
 }
