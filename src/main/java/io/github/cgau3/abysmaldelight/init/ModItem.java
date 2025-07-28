@@ -3,10 +3,13 @@ package io.github.cgau3.abysmaldelight.init;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import io.github.cgau3.abysmaldelight.item.LaverFilamentItem;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import vectorwing.farmersdelight.common.FoodValues;
+import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
 
 import java.util.List;
@@ -111,6 +114,53 @@ public class ModItem {
     public static ItemEntry<Item> PEARL_ITEM = A_REGISTRATE
         .item("pearl", Item::new)
         .register();
+    public static ItemEntry<ConsumableItem> STEAMED_SCALLOP_ITEM = A_REGISTRATE
+        .item("steamed_scallop", p -> new ConsumableItem(p, true))
+        .properties(p -> p
+            .food(new FoodProperties.Builder()
+                .nutrition(5)                   // 5饱食度
+                .saturationModifier(0.8f)       // 8饱和度
+                .usingConvertsTo(ModItem.SHELL_ITEM.get())
+                .effect(
+                    () -> new MobEffectInstance(MobEffects.WATER_BREATHING, FoodValues.MEDIUM_DURATION, 0, false, false),
+                    1.0F)
+                .build()
+            )
+            .craftRemainder(ModItem.SHELL_ITEM.get())
+            .stacksTo(16)
+        )
+        .register();
+    public static ItemEntry<ConsumableItem> SEAFOOD_PORRIDGE_ITEM = A_REGISTRATE
+        .item("seafood_porridge", p -> new ConsumableItem(p, true))
+        .properties(p -> p
+            .food(new FoodProperties.Builder()
+                .nutrition(12)                   // 12饱食度
+                .saturationModifier(0.9f)        // 21.6饱和度
+                .usingConvertsTo(Items.BOWL.asItem())
+                .effect(() -> FoodValues.comfort(FoodValues.LONG_DURATION),1.0F)
+                .build()
+            )
+            .craftRemainder(Items.BOWL.asItem())
+            .stacksTo(16)
+        )
+        .register();
+    public static ItemEntry<ConsumableItem> SCALLOP_DANGENG_ITEM = A_REGISTRATE
+        .item("scallop_dangeng", p -> new ConsumableItem(p, true))
+        .properties(p -> p
+            .food(new FoodProperties.Builder()
+                .nutrition(5)                    // 5饱食度
+                .saturationModifier(1.2f)        // 12饱和度
+                .usingConvertsTo(Items.BOWL.asItem())
+                .effect(() -> FoodValues.comfort(FoodValues.SHORT_DURATION),1.0F)
+                .build()
+            )
+            .craftRemainder(Items.BOWL.asItem())
+            .stacksTo(16)
+        )
+        .register();
+
+    //TODO: Revamp scallop, steamed scallop aesthetics
+
 
     public static void register() {}
 }

@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "abysmaldelight:shell"
+  },
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "abysmaldelight:scallop_meat"
+    },
+    {
+      "tag": "c:foods/onion"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "count": 1,
+    "id": "abysmaldelight:steamed_scallop"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  },
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "abysmaldelight:dried_scallop_meat"
+    },
+    {
+      "tag": "minecraft:fishes"
+    },
+    {
+      "tag": "c:foods/onion"
+    },
+    {
+      "item": "farmersdelight:rice"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "abysmaldelight:seafood_porridge"
+  }
+}
