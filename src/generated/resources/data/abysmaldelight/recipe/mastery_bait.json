@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "abysmaldelight:delicate_bait"
+    },
+    "B": {
+      "item": "abysmaldelight:scallop_meat"
+    },
+    "S": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ASA",
+    "ABA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "abysmaldelight:mastery_bait"
+  }
+}

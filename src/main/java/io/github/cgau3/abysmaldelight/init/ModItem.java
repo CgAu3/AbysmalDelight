@@ -1,8 +1,8 @@
 package io.github.cgau3.abysmaldelight.init;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
+import io.github.cgau3.abysmaldelight.item.BaitItem;
 import io.github.cgau3.abysmaldelight.item.LaverFilamentItem;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -25,7 +25,7 @@ public class ModItem {
 
     public static ItemEntry<Item> LAVER_ITEM = A_REGISTRATE
         .item("laver", Item::new)
-        .tag(ItemTags.TURTLE_FOOD, ModItemTag.LAVER)
+        .tag(ModItemTag.LAVER, ModItemTag.SEA_TANGLES)
         .compostable(0.3f)
         .register();
     public static ItemEntry<Item> NORI_ITEM = A_REGISTRATE
@@ -161,6 +161,50 @@ public class ModItem {
 
     //TODO: Revamp scallop, steamed scallop aesthetics
 
+    public static ItemEntry<BaitItem> BAIT_AVERAGE = A_REGISTRATE
+        .item("average_bait", BaitItem::new)
+        .tag(ModItemTag.BAIT)
+        .register();
+
+    //TODO: Draw sprites for following items
+    //TODO: Revamp fishing-extra system to apply baits
+
+    public static ItemEntry<BaitItem> BAIT_TANGLING = A_REGISTRATE
+        .item("tangling_bait", BaitItem::new)
+        .tag(ModItemTag.BAIT)
+        .register();
+
+    public static ItemEntry<BaitItem> BAIT_DELICATE = A_REGISTRATE
+        .item("delicate_bait", BaitItem::new)
+        .tag(ModItemTag.BAIT)
+        .register();
+
+    public static ItemEntry<BaitItem> BAIT_VANILLA = A_REGISTRATE
+        .item("vanilla_bait", BaitItem::new)
+        .tag(ModItemTag.BAIT)
+        .register();
+
+    public static ItemEntry<BaitItem> BAIT_MAGNETIC = A_REGISTRATE
+        .item("magnetic_bait", BaitItem::new)
+        .tag(ModItemTag.BAIT)
+        .register();
+
+    public static ItemEntry<BaitItem> BAIT_MASTERY = A_REGISTRATE
+        .item("mastery_bait", BaitItem::new)
+        .tag(ModItemTag.BAIT)
+        .register();
+
+    public static ItemEntry<ConsumableItem> SILVERFISH_RAW = A_REGISTRATE
+        .item("raw_silverfish", p -> new ConsumableItem(p, true))
+        .properties(p -> p
+            .food(new FoodProperties.Builder()
+                .nutrition(1)                    // 1饱食度
+                .saturationModifier(0.6f)        // 1.2饱和度
+                .fast()
+                .build()
+            )
+        )
+        .register();
 
     public static void register() {}
 }

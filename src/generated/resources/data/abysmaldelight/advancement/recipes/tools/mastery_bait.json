@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_delicate_bait": {
+      "conditions": {
+        "items": [
+          {
+            "items": "abysmaldelight:delicate_bait"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_nether_star": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:nether_star"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "abysmaldelight:mastery_bait"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_delicate_bait",
+      "has_nether_star"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "abysmaldelight:mastery_bait"
+    ]
+  }
+}

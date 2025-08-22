@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:tripwire_hook"
+    },
+    {
+      "tag": "c:ink_sacs"
+    },
+    {
+      "tag": "abysmaldelight:tangles/sea"
+    },
+    {
+      "tag": "abysmaldelight:tangles/sea"
+    },
+    {
+      "tag": "abysmaldelight:tangles/sea"
+    }
+  ],
+  "result": {
+    "count": 5,
+    "id": "abysmaldelight:tangling_bait"
+  }
+}

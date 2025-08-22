@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "abysmaldelight:delicate_bait"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:redstone"
+    },
+    "D": {
+      "item": "minecraft:blue_dye"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "CAD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "abysmaldelight:magnetic_bait"
+  }
+}

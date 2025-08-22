@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "abysmaldelight:average_bait"
+    },
+    "S": {
+      "item": "minecraft:grass_block"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ASA",
+    "AAA"
+  ],
+  "result": {
+    "count": 10,
+    "id": "abysmaldelight:vanilla_bait"
+  }
+}

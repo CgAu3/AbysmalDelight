@@ -5,6 +5,7 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import io.github.cgau3.abysmaldelight.AbysmalDelight;
 import io.github.cgau3.abysmaldelight.data.provider.ModLootTableProvider;
 import io.github.cgau3.abysmaldelight.data.recipe.RecipeHandler;
+import io.github.cgau3.abysmaldelight.data.tags.TagsHandler;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
@@ -37,10 +38,9 @@ public class AbysmalDataGen {
     }
 
     public static void init() {
-        //A_REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagsHandler::initItem);
+        A_REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TagsHandler::initItem);
         A_REGISTRATE.addDataGenerator(ProviderType.RECIPE, RecipeHandler::init);
         //A_REGISTRATE.addDataGenerator(ProviderType.LANG, LangHandler::init);
-        //也是啥也不做，但是以后会用到的
     }
 
     public static @NotNull Criterion<InventoryChangeTrigger.TriggerInstance> has(ItemLike itemLike) {
