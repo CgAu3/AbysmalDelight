@@ -76,6 +76,17 @@ public class VanillaRecipesLoader {
             .requires(Items.SUGAR)
             .unlockedBy("has_item", AbysmalDataGen.has(Items.FISHING_ROD))
             .save(provider);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ModItem.BAIT_DEFAULT, 1)
+            .requires(ModItem.BAIT_VANILLA.get())
+            .requires(Items.COAL)
+            .requires(Items.MAGENTA_DYE)
+            .unlockedBy("has_item", AbysmalDataGen.has(ModItem.BAIT_VANILLA))
+            .save(provider);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.ENDER_PEARL, 2)
+            .requires(ModItem.PEARL_ITEM.get())
+            .requires(Items.ENDER_PEARL)
+            .unlockedBy("has_item", AbysmalDataGen.has(ModItem.PEARL_ITEM))
+            .save(provider);
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ModItem.LAVER_ITEM), RecipeCategory.FOOD,
                 ModItem.NORI_ITEM, 0.35f, 300)
             .unlockedBy(AbysmalDataGen.hasItem(ModItem.LAVER_ITEM.get()), AbysmalDataGen.has(ModItem.LAVER_ITEM))

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "quality": -2,
+          "value": "abysmaldelight:gameplay/fishing/nested/vanilla/junk",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:loot_table",
+          "quality": 2,
+          "value": "abysmaldelight:gameplay/fishing/nested/vanilla/treasure",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:loot_table",
+          "quality": -1,
+          "value": "abysmaldelight:gameplay/fishing/nested/vanilla/fish",
+          "weight": 85
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "abysmaldelight:gameplay/fishing/bait/vanilla"
+}

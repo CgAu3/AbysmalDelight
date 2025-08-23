@@ -3,6 +3,11 @@ plugins {
     id 'maven-publish'
     id 'idea'
     id 'net.neoforged.moddev' version '2.0.95'
+    id "io.freefair.lombok" version "8.7.1"
+}
+
+lombok {
+    version = "1.18.34"
 }
 
 version = mod_version

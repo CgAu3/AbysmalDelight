@@ -1,19 +1,24 @@
 package io.github.cgau3.abysmaldelight.init;
 
 import com.tterrag.registrate.util.entry.ItemEntry;
+import io.github.cgau3.abysmaldelight.core.bait.BaitType;
 import io.github.cgau3.abysmaldelight.item.BaitItem;
 import io.github.cgau3.abysmaldelight.item.LaverFilamentItem;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.FoodValues;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 import static io.github.cgau3.abysmaldelight.AbysmalDelight.A_REGISTRATE;
 
@@ -159,40 +164,42 @@ public class ModItem {
         )
         .register();
 
-    //TODO: Revamp scallop, steamed scallop aesthetics
+    //TODO: 重做扇贝、贝壳、蒸扇贝的美术
 
-    public static ItemEntry<BaitItem> BAIT_AVERAGE = A_REGISTRATE
-        .item("average_bait", BaitItem::new)
-        .tag(ModItemTag.BAIT)
-        .register();
+    public static ItemEntry<? extends BaitItem> BAIT_AVERAGE = createBaitItem(
+        "average",
+        () -> ModBaitTypes.AVERAGE
+    );
 
-    //TODO: Draw sprites for following items
-    //TODO: Revamp fishing-extra system to apply baits
+    public static ItemEntry<? extends BaitItem> BAIT_TANGLING = createBaitItem(
+        "tangling",
+        () -> ModBaitTypes.TANGLING
+    );
 
-    public static ItemEntry<BaitItem> BAIT_TANGLING = A_REGISTRATE
-        .item("tangling_bait", BaitItem::new)
-        .tag(ModItemTag.BAIT)
-        .register();
+    public static ItemEntry<? extends BaitItem> BAIT_DELICATE = createBaitItem(
+        "delicate",
+        () -> ModBaitTypes.DELICATE
+    );
 
-    public static ItemEntry<BaitItem> BAIT_DELICATE = A_REGISTRATE
-        .item("delicate_bait", BaitItem::new)
-        .tag(ModItemTag.BAIT)
-        .register();
+    public static ItemEntry<? extends BaitItem> BAIT_VANILLA = createBaitItem(
+        "vanilla",
+        () -> ModBaitTypes.VANILLA
+    );
 
-    public static ItemEntry<BaitItem> BAIT_VANILLA = A_REGISTRATE
-        .item("vanilla_bait", BaitItem::new)
-        .tag(ModItemTag.BAIT)
-        .register();
+    public static ItemEntry<? extends BaitItem> BAIT_MAGNETIC = createBaitItem(
+        "magnetic",
+        () -> ModBaitTypes.MAGNETIC
+    );
 
-    public static ItemEntry<BaitItem> BAIT_MAGNETIC = A_REGISTRATE
-        .item("magnetic_bait", BaitItem::new)
-        .tag(ModItemTag.BAIT)
-        .register();
+    public static ItemEntry<? extends BaitItem> BAIT_MASTERY = createBaitItem(
+        "mastery",
+        () -> ModBaitTypes.MASTERY
+    );
 
-    public static ItemEntry<BaitItem> BAIT_MASTERY = A_REGISTRATE
-        .item("mastery_bait", BaitItem::new)
-        .tag(ModItemTag.BAIT)
-        .register();
+    public static ItemEntry<? extends BaitItem> BAIT_DEFAULT = createBaitItem(
+        "default",
+        () -> ModBaitTypes.DEFAULT
+    );
 
     public static ItemEntry<ConsumableItem> SILVERFISH_RAW = A_REGISTRATE
         .item("raw_silverfish", p -> new ConsumableItem(p, true))
@@ -205,6 +212,20 @@ public class ModItem {
             )
         )
         .register();
+
+    private static @NotNull ItemEntry<? extends BaitItem> createBaitItem(
+        String type, Supplier<DeferredHolder<BaitType, ?>> typeGetter
+    ) {
+        return A_REGISTRATE
+            .item(type + "_bait", properties -> new BaitItem(properties) {
+                @Override
+                public Holder<BaitType> getType() {
+                    return typeGetter.get();
+                }
+            })
+            .tag(ModItemTag.BAIT)
+            .register();
+    }
 
     public static void register() {}
 }

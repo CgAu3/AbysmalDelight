@@ -4,6 +4,7 @@
   "package": "io.github.cgau3.abysmaldelight.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "FishingHookMixin"
   ],
   "client": [
   ],

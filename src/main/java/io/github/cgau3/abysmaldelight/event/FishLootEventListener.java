@@ -1,7 +1,8 @@
 package io.github.cgau3.abysmaldelight.event;
 
 import io.github.cgau3.abysmaldelight.AbysmalDelight;
-import io.github.cgau3.abysmaldelight.init.ModLootTable;
+import io.github.cgau3.abysmaldelight.core.bait.BaitType;
+import io.github.cgau3.abysmaldelight.item.BaitItem;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.FishingHook;
+import net.minecraft.world.item.FishingRodItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -30,11 +32,26 @@ public class FishLootEventListener {
     public static void ApplyExtraFishLoot(ItemFishedEvent event){
         Level level = event.getEntity().level();
         if (level.isClientSide()) return;
-        LootTable loot = ModLootTable.getExtraFishing(level);
+
+        Player player = event.getEntity();
+        ItemStack mainHand = player.getMainHandItem();
+        ItemStack offhand = player.getOffhandItem();
+        ItemStack baitItemStack = null;
+        BaitType bait = null;
+        if (mainHand.getItem() instanceof FishingRodItem && offhand.getItem() instanceof BaitItem baitItem) {
+            bait = baitItem.getType().value();
+            baitItemStack = offhand;
+        }
+        if (offhand.getItem() instanceof FishingRodItem && mainHand.getItem() instanceof BaitItem baitItem) {
+            bait = baitItem.getType().value();
+            baitItemStack = mainHand;
+        }
+        if (bait == null) return;
+
+        LootTable loot = bait.getLootTable((ServerLevel) level);
         ItemStack stack = event.getHookEntity().getWeaponItem();
         stack = stack == null ? Items.AIR.getDefaultInstance() : stack;
 
-        Player player = event.getEntity();
         FishingHook hook = event.getHookEntity();
 
         LootParams lootparams = new LootParams.Builder((ServerLevel)level)
@@ -42,11 +59,10 @@ public class FishLootEventListener {
             .withParameter(LootContextParams.TOOL, stack)
             .withParameter(LootContextParams.THIS_ENTITY, hook)
             .withParameter(LootContextParams.ATTACKING_ENTITY, player)
-            .withLuck((float)hook.luck + player.getLuck())
+            .withLuck((float)hook.luck + player.getLuck() + bait.getLuckBoost())
             .create(LootContextParamSets.FISHING);
         List<ItemStack> result = loot.getRandomItems(lootparams);
-        float dice = level.getRandom().nextFloat();
-        if (!result.isEmpty() && dice <= 0.09f * result.size()) {
+        if (!result.isEmpty()) {
             event.setCanceled(true);
 
             //Replace canceled code
@@ -78,5 +94,9 @@ public class FishLootEventListener {
             hook.discard();
             //end replacement
         }
+
+        float dice_consume = level.getRandom().nextFloat();
+        if (dice_consume < bait.consumptionRate)
+            baitItemStack.shrink(1);
     }
 }

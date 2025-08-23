@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "abysmaldelight:vanilla_bait"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "minecraft:magenta_dye"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "abysmaldelight:default_bait"
+  }
+}

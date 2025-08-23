@@ -34,7 +34,9 @@ public class AbysmalDataGen {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         PackOutput packOutput = generator.getPackOutput();
 
-        generator.addProvider(event.includeServer(), new ModLootTableProvider(packOutput, lookupProvider));
+        generator.addProvider(
+            event.includeServer(),
+            new ModLootTableProvider(packOutput, lookupProvider));
     }
 
     public static void init() {
