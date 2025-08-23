@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "abysmaldelight:laver"
+    },
+    {
+      "item": "abysmaldelight:laver"
+    },
+    {
+      "item": "abysmaldelight:laver"
+    },
+    {
+      "item": "abysmaldelight:laver"
+    },
+    {
+      "item": "abysmaldelight:laver"
+    },
+    {
+      "item": "abysmaldelight:laver"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "count": 2,
+    "id": "abysmaldelight:agar"
+  }
+}

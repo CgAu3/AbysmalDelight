@@ -28,6 +28,53 @@ public class ModItem {
         A_REGISTRATE.defaultCreativeTab(ModItemGroup.ABYSMAL_TAB.getKey());
     }
 
+    public static ItemEntry<ConsumableItem> SILVERFISH_RAW = A_REGISTRATE
+        .item("raw_silverfish", p -> new ConsumableItem(p, true))
+        .properties(p -> p
+            .food(new FoodProperties.Builder()
+                .nutrition(1)                    // 1饱食度
+                .saturationModifier(0.6f)        // 1.2饱和度
+                .fast()
+                .build()
+            )
+        )
+        .register();
+
+    public static ItemEntry<? extends BaitItem> BAIT_AVERAGE = createBaitItem(
+        "average",
+        () -> ModBaitTypes.AVERAGE
+    );
+
+    public static ItemEntry<? extends BaitItem> BAIT_TANGLING = createBaitItem(
+        "tangling",
+        () -> ModBaitTypes.TANGLING
+    );
+
+    public static ItemEntry<? extends BaitItem> BAIT_DELICATE = createBaitItem(
+        "delicate",
+        () -> ModBaitTypes.DELICATE
+    );
+
+    public static ItemEntry<? extends BaitItem> BAIT_VANILLA = createBaitItem(
+        "vanilla",
+        () -> ModBaitTypes.VANILLA
+    );
+
+    public static ItemEntry<? extends BaitItem> BAIT_MAGNETIC = createBaitItem(
+        "magnetic",
+        () -> ModBaitTypes.MAGNETIC
+    );
+
+    public static ItemEntry<? extends BaitItem> BAIT_MASTERY = createBaitItem(
+        "mastery",
+        () -> ModBaitTypes.MASTERY
+    );
+
+    public static ItemEntry<? extends BaitItem> BAIT_DEFAULT = createBaitItem(
+        "default",
+        () -> ModBaitTypes.DEFAULT
+    );
+
     public static ItemEntry<Item> LAVER_ITEM = A_REGISTRATE
         .item("laver", Item::new)
         .tag(ModItemTag.LAVER, ModItemTag.SEA_TANGLES)
@@ -90,6 +137,14 @@ public class ModItem {
         .item("laver_filament", LaverFilamentItem::new)
         .compostable(0.1f)
         .register();
+
+    public static ItemEntry<Item> AGAR_ITEM = A_REGISTRATE
+        .item("agar", Item::new)
+        .register();
+
+    //这里之后写琼脂拳套。琼脂块和琼脂弹板属于方块而不是物品；不过琼脂弹板需要注册自己的物品类型
+    //不过既然紫菜有琼脂拳套了，或许应该考虑给海带做一个对位的海带鞭子
+
     public static ItemEntry<Item> SCALLOP_ITEM = A_REGISTRATE
         .item("scallop", Item::new)
         .register();
@@ -165,53 +220,6 @@ public class ModItem {
         .register();
 
     //TODO: 重做扇贝、贝壳、蒸扇贝的美术
-
-    public static ItemEntry<? extends BaitItem> BAIT_AVERAGE = createBaitItem(
-        "average",
-        () -> ModBaitTypes.AVERAGE
-    );
-
-    public static ItemEntry<? extends BaitItem> BAIT_TANGLING = createBaitItem(
-        "tangling",
-        () -> ModBaitTypes.TANGLING
-    );
-
-    public static ItemEntry<? extends BaitItem> BAIT_DELICATE = createBaitItem(
-        "delicate",
-        () -> ModBaitTypes.DELICATE
-    );
-
-    public static ItemEntry<? extends BaitItem> BAIT_VANILLA = createBaitItem(
-        "vanilla",
-        () -> ModBaitTypes.VANILLA
-    );
-
-    public static ItemEntry<? extends BaitItem> BAIT_MAGNETIC = createBaitItem(
-        "magnetic",
-        () -> ModBaitTypes.MAGNETIC
-    );
-
-    public static ItemEntry<? extends BaitItem> BAIT_MASTERY = createBaitItem(
-        "mastery",
-        () -> ModBaitTypes.MASTERY
-    );
-
-    public static ItemEntry<? extends BaitItem> BAIT_DEFAULT = createBaitItem(
-        "default",
-        () -> ModBaitTypes.DEFAULT
-    );
-
-    public static ItemEntry<ConsumableItem> SILVERFISH_RAW = A_REGISTRATE
-        .item("raw_silverfish", p -> new ConsumableItem(p, true))
-        .properties(p -> p
-            .food(new FoodProperties.Builder()
-                .nutrition(1)                    // 1饱食度
-                .saturationModifier(0.6f)        // 1.2饱和度
-                .fast()
-                .build()
-            )
-        )
-        .register();
 
     private static @NotNull ItemEntry<? extends BaitItem> createBaitItem(
         String type, Supplier<DeferredHolder<BaitType, ?>> typeGetter

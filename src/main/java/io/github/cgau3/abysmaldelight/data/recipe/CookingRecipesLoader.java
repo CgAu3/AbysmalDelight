@@ -65,5 +65,20 @@ public class CookingRecipesLoader {
             .unlockedByAnyIngredient(ModItem.DIRED_SCALLOP_MEAT_ITEM, Items.EGG.asItem())
             .setRecipeBookTab(CookingPotRecipeBookTab.MISC)
             .build(provider);
+        CookingPotRecipeBuilder.cookingPotRecipe(
+                ModItem.AGAR_ITEM.get(),
+                2,
+                CookingRecipes.NORMAL_COOKING,
+                CookingRecipes.SMALL_EXP
+            )
+            .addIngredient(ModItem.LAVER_ITEM)
+            .addIngredient(ModItem.LAVER_ITEM)
+            .addIngredient(ModItem.LAVER_ITEM)
+            .addIngredient(ModItem.LAVER_ITEM)
+            .addIngredient(ModItem.LAVER_ITEM)
+            .addIngredient(ModItem.LAVER_ITEM)
+            .unlockedByAnyIngredient(ModItem.LAVER_ITEM)
+            .setRecipeBookTab(CookingPotRecipeBookTab.MISC)
+            .build(provider);
     }
 }
