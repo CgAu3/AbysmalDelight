@@ -83,7 +83,7 @@ public class VanillaRecipesLoader {
             .unlockedBy("has_item", AbysmalDataGen.has(ModItem.BAIT_VANILLA))
             .save(provider);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.ENDER_PEARL, 2)
-            .requires(ModItem.PEARL_ITEM.get())
+            .requires(ModItem.PEARL_ITEM.get(), 2)
             .requires(Items.ENDER_PEARL)
             .unlockedBy("has_item", AbysmalDataGen.has(ModItem.PEARL_ITEM))
             .save(provider);

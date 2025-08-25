@@ -1,10 +1,13 @@
 package io.github.cgau3.abysmaldelight.init;
 
+import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import io.github.cgau3.abysmaldelight.core.bait.BaitType;
 import io.github.cgau3.abysmaldelight.item.BaitItem;
 import io.github.cgau3.abysmaldelight.item.LaverFilamentItem;
 import net.minecraft.core.Holder;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -17,6 +20,7 @@ import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -25,7 +29,7 @@ import static io.github.cgau3.abysmaldelight.AbysmalDelight.A_REGISTRATE;
 public class ModItem {
 
     static {
-        A_REGISTRATE.defaultCreativeTab(ModItemGroup.ABYSMAL_TAB.getKey());
+        A_REGISTRATE.defaultCreativeTab(Objects.requireNonNull(ModItemGroup.ABYSMAL_TAB.getKey()));
     }
 
     public static ItemEntry<ConsumableItem> SILVERFISH_RAW = A_REGISTRATE
@@ -140,6 +144,13 @@ public class ModItem {
 
     public static ItemEntry<Item> AGAR_ITEM = A_REGISTRATE
         .item("agar", Item::new)
+        .tag(ModItemTag.AGAR)
+        .recipe(
+            (ctx, p) -> ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ctx.get(), 9)
+                .requires(ModBlock.AGAR_BLOCK.asItem())
+                .unlockedBy("has_item", RegistrateRecipeProvider.has(ModBlock.AGAR_BLOCK.asItem()))
+                .save(p)
+        )
         .register();
 
     //这里之后写琼脂拳套。琼脂块和琼脂弹板属于方块而不是物品；不过琼脂弹板需要注册自己的物品类型

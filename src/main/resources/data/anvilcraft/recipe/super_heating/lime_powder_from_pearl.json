@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "anvilcraft"
+    }
+  ],
+  "type": "anvilcraft:super_heating",
+  "ingredients": [
+    {
+      "count": 2,
+      "items": "abysmaldelight:pearl"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "id": "anvilcraft:lime_powder"
+    }
+  ]
+}

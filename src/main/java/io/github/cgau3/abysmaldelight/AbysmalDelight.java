@@ -3,6 +3,7 @@ package io.github.cgau3.abysmaldelight;
 import com.tterrag.registrate.Registrate;
 import io.github.cgau3.abysmaldelight.data.AbysmalDataGen;
 import io.github.cgau3.abysmaldelight.init.ModBaitTypes;
+import io.github.cgau3.abysmaldelight.init.ModBlock;
 import io.github.cgau3.abysmaldelight.init.ModItem;
 import io.github.cgau3.abysmaldelight.init.ModItemGroup;
 import net.minecraft.resources.ResourceLocation;
@@ -26,8 +27,8 @@ public class AbysmalDelight {
     public AbysmalDelight(IEventBus modEventBus) {
         MOD_BUS = modEventBus;
         ModItemGroup.register(modEventBus);
-        //ModBlocks.register();
         ModItem.register();
+        ModBlock.register();
         //ModBlockEntities.register();
         //ModRecipeTypes.register(modEventBus);
         //ModFluids.register(modEventBus);
