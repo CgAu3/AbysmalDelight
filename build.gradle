@@ -152,9 +152,11 @@ dependencies {
     // implementation project(":myproject")
 
     implementation "maven.modrinth:farmers-delight:1.21.1-1.2.8"
+    implementation "maven.modrinth:just-enough-effect-descriptions-jeed:1.21-2.2.19"
 
     // Registrate
     api("com.tterrag.registrate:Registrate:${registrate_version}")
+    jarJar("com.tterrag.registrate:Registrate:${registrate_version}")
 
     // Curios API
     api("top.theillusivec4.curios:curios-neoforge:${curios_version}")
@@ -172,6 +174,7 @@ dependencies {
     runtimeOnly("com.simibubi.create:create-${minecraft_version}:6.0.4-61") { transitive = false }
     // AnvilCraft
     runtimeOnly("dev.dubhe:anvilcraft-neoforge-1.21.1:${anvilcraft_version}") { transitive = false }
+    //runtimeOnly("dev.anvilcraft.lib:anvillib-neoforge-1.21.1:${anvillib_version}") { transitive = false }
 
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
