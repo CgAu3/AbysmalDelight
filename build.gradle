@@ -151,8 +151,8 @@ dependencies {
     // Example project dependency using a sister or child project:
     // implementation project(":myproject")
 
-    implementation "maven.modrinth:farmers-delight:1.21.1-1.2.8"
-    implementation "maven.modrinth:just-enough-effect-descriptions-jeed:1.21-2.2.19"
+    implementation "maven.modrinth:farmers-delight:1.21.1-1.2.8-neoforge"
+    implementation "maven.modrinth:just-enough-effect-descriptions-jeed:1.21-2.2.19-neoforge"
 
     // Registrate
     api("com.tterrag.registrate:Registrate:${registrate_version}")
