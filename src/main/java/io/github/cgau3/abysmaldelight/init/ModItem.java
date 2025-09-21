@@ -1,5 +1,6 @@
 package io.github.cgau3.abysmaldelight.init;
 
+import com.google.common.collect.ImmutableList;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import io.github.cgau3.abysmaldelight.core.bait.BaitType;
@@ -10,8 +11,10 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodConstants;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
@@ -103,7 +106,7 @@ public class ModItem {
             .food(new FoodProperties.Builder()
                 .nutrition(6)                   // 6饱食度
                 .saturationModifier(1f)         // 12饱和度
-                .usingConvertsTo(Items.BOWL)
+                //.usingConvertsTo(Items.BOWL)
                 .effect(() -> FoodValues.comfort(FoodValues.MEDIUM_DURATION), 1.0F)
                 .build()
             )
@@ -187,17 +190,20 @@ public class ModItem {
         .register();
     public static ItemEntry<ConsumableItem> STEAMED_SCALLOP_ITEM = A_REGISTRATE
         .item("steamed_scallop", p -> new ConsumableItem(p, true))
-        .properties(p -> p
-            .food(new FoodProperties.Builder()
+        .properties(
+            p -> p
+            .food(
+                new FoodProperties.Builder()
                 .nutrition(5)                   // 5饱食度
                 .saturationModifier(0.8f)       // 8饱和度
-                .usingConvertsTo(ModItem.SHELL_ITEM.get())
+                //.usingConvertsTo(ModItem.SHELL_ITEM.get())
                 .effect(
                     () -> new MobEffectInstance(MobEffects.WATER_BREATHING, FoodValues.MEDIUM_DURATION, 0, false, false),
                     1.0F)
                 .build()
             )
             .craftRemainder(ModItem.SHELL_ITEM.get())
+                //convert to 和 craft remainder 似乎写一个就行
             .stacksTo(16)
         )
         .register();
@@ -207,7 +213,7 @@ public class ModItem {
             .food(new FoodProperties.Builder()
                 .nutrition(12)                   // 12饱食度
                 .saturationModifier(0.9f)        // 21.6饱和度
-                .usingConvertsTo(Items.BOWL.asItem())
+                //.usingConvertsTo(Items.BOWL.asItem())
                 .effect(() -> FoodValues.comfort(FoodValues.LONG_DURATION),1.0F)
                 .build()
             )
@@ -221,7 +227,7 @@ public class ModItem {
             .food(new FoodProperties.Builder()
                 .nutrition(5)                    // 5饱食度
                 .saturationModifier(1.2f)        // 12饱和度
-                .usingConvertsTo(Items.BOWL.asItem())
+                //.usingConvertsTo(Items.BOWL.asItem())
                 .effect(() -> FoodValues.comfort(FoodValues.SHORT_DURATION),1.0F)
                 .build()
             )
